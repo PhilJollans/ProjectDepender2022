@@ -100,6 +100,8 @@ namespace ProjectDepender
     /// <param name="e">Event args.</param>
     private void MenuItemCallback(object sender, EventArgs e)
     {
+      ThreadHelper.ThrowIfNotOnUIThread();
+
       //string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
       //string title = "ProjectDependencies";
 
@@ -198,6 +200,8 @@ namespace ProjectDepender
 
     private List<Project> GetFlatListOfProjects ( Solution s )
     {
+      ThreadHelper.ThrowIfNotOnUIThread();
+
       var results = new List<Project>() ;
 
       foreach ( Project p in s.Projects )
@@ -212,6 +216,8 @@ namespace ProjectDepender
 
     private void ProcessSolutionFolder ( Project p, List<Project> results )
     {
+      ThreadHelper.ThrowIfNotOnUIThread();
+
       foreach ( ProjectItem pi in p.ProjectItems )
       {
         Project pp = pi.Object as Project;

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using Microsoft.VisualStudio.Shell;
 
 namespace ProjectDepender
 {
@@ -47,6 +48,8 @@ namespace ProjectDepender
     // Constructor
     public ReferenceItem ( BuildDependency parentDependency, Project parent, Project child, bool IsBuildRef, bool IsRef )
     {
+      ThreadHelper.ThrowIfNotOnUIThread();
+
       Dependency          = parentDependency ;
       ParentName          = parent.Name ;
       ChildName           = child.Name ;

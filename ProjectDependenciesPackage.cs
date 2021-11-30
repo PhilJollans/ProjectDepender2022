@@ -68,6 +68,8 @@ namespace ProjectDepender
     /// </summary>
     protected override void Initialize()
     {
+      ThreadHelper.ThrowIfNotOnUIThread();
+
       ProjectDependencies.Initialize(this);
       base.Initialize();
 
