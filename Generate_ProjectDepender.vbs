@@ -114,7 +114,7 @@ Private Sub BuildSolution ( SolutionFile )
 
   Dim MSBuildCommand
   
-  MSBuildCommand = """C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"" " & SolutionFile & " /t:Build /p:Configuration=Release /p:Platform=""Any CPU"" /p:TargetFramework=v4.7.2 /fl /flp:logfile=ProjectDependerBuild.log /nodeReuse:false"
+  MSBuildCommand = """C:\Program Files\Microsoft Visual Studio\2022\Community\Msbuild\Current\Bin\MSBuild.exe"" " & SolutionFile & " /t:Build /p:Configuration=Release /p:Platform=""Any CPU"" /p:TargetFramework=v4.7.2 /fl /flp:logfile=ProjectDependerBuild.log /nodeReuse:false"
   
   ExitCode = WshShell.Run ( MSBuildCommand, 1, True )
   If ExitCode <> 0 Then
@@ -168,7 +168,7 @@ PatchPackageDefinition "ProjectDependenciesPackage.cs", Assembly_Version
 BuildSolution "ProjectDepender.sln" 
 
 'Copy output file
-fso.CopyFile "bin\Release\ProjectDepender.vsix", OutputDirectory 
+fso.CopyFile "bin\Release\ProjectDepender2022.vsix", OutputDirectory 
 
 MsgBox "Done"
  
